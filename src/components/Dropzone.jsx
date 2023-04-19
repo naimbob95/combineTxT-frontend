@@ -25,7 +25,7 @@ function DropzoneComponent() {
     console.log(file[0])
     formData.append('files', file[0])
     console.log(formData);
-    const response = await fetch('http://localhost:3000/upload_files', {
+    const response = await fetch(import.meta.env.VITE_API_URL+'/upload_files', {
       method: 'POST',
       body: formData,
     })
@@ -33,7 +33,7 @@ function DropzoneComponent() {
       response.json().then(json => {
         console.log(json.output);
         localStorage.setItem('items',json.output);
-
+        window.location.reload();
         
       });
     } 

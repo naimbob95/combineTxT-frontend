@@ -4,6 +4,7 @@ import viteLogo from '/vite.svg'
 import DropzoneComponent from './components/Dropzone';
 import NavbarComponent from './components/Navbar';
 import Filelist from './components/Filelist';
+import FooterComponent from './components/Footer';
 import './App.css'
 
 function App() {
@@ -12,7 +13,7 @@ function App() {
 
   return (
     
-    <div>
+    <div className='h-screen'>
       <NavbarComponent />
      
      {/* Header */}
@@ -26,7 +27,7 @@ function App() {
 
 
  
- 
+ {/* <FooterComponent /> */}
  
  
  <div>

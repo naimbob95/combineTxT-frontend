@@ -3,13 +3,15 @@ function FilelistComponent() {
     var file = localStorage.getItem("items");
     // http://localhost:3000/download/`+file
     const handleSubmit = async (e) => {
-        window.open('http://localhost:3000/download/' + file);
+        window.open(import.meta.env.VITE_API_URL+'/download/'+ file);
 
     }
 
     const deleteSubmit = async (e) => {
-        await fetch('http://localhost:3000/file/'+file, { method: 'DELETE' });
         localStorage.clear();
+        window.location.reload();
+        await fetch(import.meta.env.VITE_API_URL+'/file/'+file, { method: 'DELETE' });
+       
 
     }
 
