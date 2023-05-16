@@ -13,7 +13,7 @@ function App() {
   const [data] = useHelloWorld(import.meta.env.VITE_API_URL);
 
   if(data){
-    console.log(data);
+    // console.log(data);
     return (
     
       <div className='h-screen'>
