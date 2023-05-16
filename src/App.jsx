@@ -6,35 +6,41 @@ import NavbarComponent from './components/Navbar';
 import Filelist from './components/Filelist';
 import FooterComponent from './components/Footer';
 import './App.css'
+import useHelloWorld from "./hooks/useHelloWorld";
 
 function App() {
-  const [count, setCount] = useState(0)
+  // const [count, setCount] = useState(0)
+  const [data] = useHelloWorld(import.meta.env.VITE_API_URL);
 
-
-  return (
+  if(data){
+    console.log(data);
+    return (
     
-    <div className='h-screen'>
-      <NavbarComponent />
+      <div className='h-screen'>
+        <NavbarComponent />
+       
+       {/* Header */}
+    
+    
+   
+   <div><h3 className='text-lg antialiased	italic flex justify-center m-3'>Currently we only support zip as this in Alpha</h3></div>
+   
+   <DropzoneComponent />
+  
+  {localStorage.getItem('items') &&  <Filelist  />}
+  
+  
+   
+   {/* <FooterComponent /> */}
+   
+   
+   <div>
      
-     {/* Header */}
-   
- 
- <div><h3 className='text-lg antialiased	italic flex justify-center m-3'>Currently we only support zip as this in Alpha</h3></div>
- 
- <DropzoneComponent />
+   </div>
+   </div>
+     )
+  }
 
-{localStorage.getItem('items') &&  <Filelist  />}
-
-
- 
- {/* <FooterComponent /> */}
- 
- 
- <div>
-   
- </div>
- </div>
-   )
 }
 
 export default App
